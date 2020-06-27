@@ -15,6 +15,40 @@ class App extends React.Component {
     }
   }
 
+  updateFilter = newFilter => {
+
+    this.setState({
+      filters: {
+        type: newFilter
+      }
+
+    })
+  }
+
+  //este metodo traz o "data" que neste caso eh o "click"
+  //de baixo para cima  
+  adoptPet = petId => {
+    this.setState(prevState => {
+      return {pets: prevState.pets.map(pet =>{
+        if(petId !== pet.id){
+          return pet
+        }else{
+          pet.isAdopted = true
+          return pet
+        }
+      })
+      }
+    })
+  }
+
+
+  fetchPets = () => {
+    const {type} = this.state.filters
+    fetch(`/api/pets${type === "all"?"":"?type="+type}`)
+    .then(resp => resp.json())
+    .then(data => this.setState({pets:data}))
+  }
+
   render() {
     return (
       <div className="ui container">
@@ -24,10 +58,10 @@ class App extends React.Component {
         <div className="ui container">
           <div className="ui grid">
             <div className="four wide column">
-              <Filters />
+              <Filters onHandleFetch={this.fetchPets} onUpdateFilter={this.updateFilter} />
             </div>
             <div className="twelve wide column">
-              <PetBrowser />
+              <PetBrowser pets={this.state.pets} onAdoptPet={this.adoptPet} />
             </div>
           </div>
         </div>
