@@ -52,17 +52,17 @@ descendants:
 2. App should pass a **callback** prop, `onChangeType`, to `<Filters />`. This
    callback needs to update `<App />`'s `state.filters.type`
 
-3. `<Filters />` needs a **callback** prop, `onFindPetsClick`. When the
+3. [x] `<Filters />` needs a **callback** prop, `onFindPetsClick`. When the
    `<Filters />` component calls `onFindPetsClick`, `<App />` should fetch a
    list of pets using `fetch()`.
 
-  - Assuming your app is up and running, you can make a fetch to this exact URL:
+  - [x] Assuming your app is up and running, you can make a fetch to this exact URL:
     `/api/pets` with an **optional query parameter** to get your data.
-  - Use `App`'s state.filters to control/update this parameter
-  - If the `type` is `'all'`, send a request to `/api/pets`
-  - If the `type` is `'cat'`, send a request to `/api/pets?type=cat`. Do the
+  - [x]Use `App`'s state.filters to control/update this parameter
+  - [x]If the `type` is `'all'`, send a request to `/api/pets`
+  - [x]If the `type` is `'cat'`, send a request to `/api/pets?type=cat`. Do the
     same thing for `dog` and `micropig`.
-  - The pet data received will include information on individual pets and their
+  - [x]The pet data received will include information on individual pets and their
     adoption status.
 
 4. Set `<App/>`'s `state.pets` with the results of your fetch request so
@@ -78,11 +78,11 @@ descendants:
 
 ### `Filters`
 
-1.  Should receive an `onChangeType` callback prop. This callback prop gets
+1.  [x]Should receive an `onChangeType` callback prop. This callback prop gets
     called whenever the value of the `<select>` element changes with the
     **value** of the `<select>`
 
-2.  Should receive an `onFindPetsClick` callback prop. This callback prop gets
+2.  [x]Should receive an `onFindPetsClick` callback prop. This callback prop gets
     called when the users clicks the 'Find pets' button.
 
 ### `PetBrowser`
@@ -97,12 +97,12 @@ descendants:
 
 ### `Pet`
 
-1.  Should receive a `pet` prop. Use the attributes in this data to render the
+1.  [x]Should receive a `pet` prop. Use the attributes in this data to render the
     pet card correctly. It should show the pet's `name`, `type`, `age` and
     `weight`. Based on the pet's `gender`, the component also needs to contain
     either a male (`♂`) or female (`♀`) symbol.
 
-2.  Each `pet` _may or may not_ have an `isAdopted` property set to `true`.
+2.  [x]Each `pet` _may or may not_ have an `isAdopted` property set to `true`.
     Using this property, render the correct button in the pet's card; if the pet
     is adopted, show the disabled button. Otherwise, show the primary button to
     adopt the pet.
